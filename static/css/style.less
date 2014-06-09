@@ -1,11 +1,123 @@
 @import (less) "normalize.less";
 
+////////////////////////////////////////////////////////////////////////////////
 // theme
 
-@back: black;
-@text: white;
+@back: white;
+@text: black;
+@blue: #306f9c;  // pycon uk blue
+@yellow: #fcbe4d;  // pycon uk yellow
+@red: #cc3827;  // pycon uk red
+
+////////////////////////////////////////////////////////////////////////////////
+// fonts
+
+@font-face{
+    font-family:'PythonMedium';
+    src:url('../webfonts/28617B_0_0.eot');
+    src:url('../webfonts/28617B_0_0.eot?#iefix') format('embedded-opentype'),
+    url('../webfonts/28617B_0_0.woff') format('woff'),
+    url('../webfonts/28617B_0_0.ttf') format('truetype');
+}
+@font-face{
+    font-family:'PythonBold';
+    src:url('../webfonts/28617B_1_0.eot');
+    src:url('../webfonts/28617B_1_0.eot?#iefix') format('embedded-opentype'),
+    url('../webfonts/28617B_1_0.woff') format('woff'),
+    url('../webfonts/28617B_1_0.ttf') format('truetype');
+}
+.bold{
+    font-family: 'PythonBold','Futura',Arial,Sans-serif;
+    font-weight: bold;
+}
+.med{
+    font-family: 'PythonMedium','Futura',Arial,Sans-serif;
+    font-weight: normal;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// let's go
 
 body {
-    background: @back url(../img/edu_2014-2.png) top center no-repeat;
+    background: @back;
     color: @text;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    .med;
+    h1, h2, h3 {
+        .bold;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// fancy header
+
+.head {
+    position: relative;
+    overflow: hidden;
+    background: @text url(../img/edu_2014-2.png) top center no-repeat;
+    min-height: 768px;  // matches image
+    color: @back;
+
+    h1, h2 {
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    h1 {
+        margin-top: 200px;
+        font-size: 3em;
+        .med;
+        margin-bottom: 0;
+    }
+    h2 {
+        font-size: 2.6em;
+        color: black;
+        margin: 0;
+
+    }
+    a { color: @text; text-decoration: none; }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// nav strip
+
+.nav {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: @blue;
+    color: white;
+    overflow: hidden;
+
+    ul {
+        text-align: center;
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        display: inline-block;
+        line-height: 3em;
+        font-size: 2em;
+        color: @back;
+    }
+    a {
+        color: @yellow;
+        text-decoration: none;
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// main article style content
+
+.content {
+    color: lighten(@text, 10%);
+    max-width: 40em;
+    margin: 1em auto;
+    padding: 1em;
 }
